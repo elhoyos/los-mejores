@@ -1,3 +1,7 @@
 == Aplicación Web de Pago e Informes
 
 === Parqueadero Los Mejores
+
+
+=== Colaboradores
+Juan David Hoyos (@elhoyos)
