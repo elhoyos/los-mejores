@@ -5,3 +5,4 @@
 
 === Colaboradores
 Juan David Hoyos (@elhoyos)
+Francisco Cogollo Rodriguez (@trebol256)
