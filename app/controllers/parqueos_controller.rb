@@ -14,7 +14,8 @@ class ParqueosController < ApplicationController
       @parqueo.errors.add(:placa, "El automóvil identificado con la placa #{placa} no tiene registro de entrada")
     else
       if @parqueo.hora_salida.nil?
-        @parqueo.update(valor_servicio: @parqueo.calcular_servicio, hora_salida: Time.now)
+        @parqueo.hora_salida = Time.now
+        @parqueo.update(valor_servicio: @parqueo.calcular_servicio)
       else
         @parqueo.errors.add(:placa, "El automóvil identificado con la placa #{placa} ya tiene registro de salida")
       end
