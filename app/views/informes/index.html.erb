@@ -1,0 +1,16 @@
+<h1>Lista de informes</h1>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Fecha</th>
+	<th colspan="2"></th>
+  </tr>
+ 
+  <% @informes.each do |informe| %>
+    <tr>
+      <td><%= informe.id %></td>
+      <td><%= informe.fecha %></td>
+	  <td><%= link_to 'show', article_path(article) %></td>
+    </tr>
+  <% end %>
+</table>
