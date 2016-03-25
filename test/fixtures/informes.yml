@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  num_autos_parqueados: 1
+  num_autos_inscritos: 1
+  total_recaudo: 1
+
+two:
+  num_autos_parqueados: 1
+  num_autos_inscritos: 1
+  total_recaudo: 1
