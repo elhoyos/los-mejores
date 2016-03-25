@@ -1,0 +1,27 @@
+<%= form_for :parqueo do |f| %>
+  <% if @parqueo.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@parqueo.errors.count, "error") %> prohibieron
+          que el registro de salida fuera guardado:
+      </h2>
+      <ul>
+        <% @parqueo.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.fields_for @parqueo.automovil do |f| %>
+      <%= f.label :placa %><br>
+      <%= f.text_field :placa %>
+      <%= f.submit "Registrar Salida" %>
+    <% end %>
+  </p>
+
+  <p>
+    <%= f.label :valor_servicio %>:
+  </p>
+<% end %>
