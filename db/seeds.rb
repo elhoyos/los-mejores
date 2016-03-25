@@ -5,3 +5,37 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Parqueo.delete_all
+Automovil.delete_all
+
+automoviles = Automovil.create([
+  { placa: "MLC089", inscrito: false },
+  { placa: "LLC454", inscrito: true },
+  { placa: "DUV777", inscrito: false }
+])
+
+Parqueo.create([
+  {
+    automovil: automoviles.first,
+    hora_entrada: Time.new(2016, 02, 22, 10, 00, 00),
+    hora_salida: Time.new(2016, 02, 22, 11, 00, 00),
+    valor_servicio: 2000
+  },
+  {
+    automovil: automoviles.first,
+    hora_entrada: Time.new(2016, 03, 22, 10, 00, 00)
+  }
+])
+
+Parqueo.create(
+  automovil: automoviles.second,
+  hora_entrada: Time.new(2016, 03, 22, 10, 00, 00)
+)
+
+Parqueo.create([
+  automovil: automoviles.third,
+  hora_entrada: Time.new(2016, 02, 22, 10, 00, 00),
+  hora_salida: Time.new(2016, 02, 22, 11, 00, 00),
+  valor_servicio: 2000
+])
