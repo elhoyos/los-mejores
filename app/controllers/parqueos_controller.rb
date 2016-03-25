@@ -1,0 +1,2 @@
+class ParqueosController < ApplicationController
+end
