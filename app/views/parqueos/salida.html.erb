@@ -1,0 +1,46 @@
+<%= form_for :parqueo, url: salida_parqueos_path do |f| %>
+  <% if @parqueo.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@parqueo.errors.count, "error") %> prohibió
+          que el registro de salida fuera guardado:
+      </h2>
+      <ul>
+        <% @parqueo.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.fields_for @parqueo.automovil do |f| %>
+      <%= f.label :placa %><br>
+      <%= f.text_field :placa %>
+      <%= f.submit "Registrar Salida" %>
+    <% end %>
+  </p>
+
+  <% if @parqueo.valor_servicio and not @parqueo.errors.any? %>
+  <div style="border: 1px dashed black">
+  <h2>
+    <% if @parqueo.valor_servicio == 0 %>
+    Constancia de servicio
+    <% else %>
+    Factura de Venta
+    <% end %>
+  </h2>
+  <p>
+    <%= f.label :placa %>: <%= @parqueo.automovil.placa %><br>
+    <%= f.label :hora_entrada %>: <%= @parqueo.hora_entrada %><br>
+    <%= f.label :hora_salida %>: <%= @parqueo.hora_salida %><br>
+    <% if @parqueo.valor_servicio == 0 %>
+    <span>Inscrito Mensualidad</span>
+    <% else %>
+    <%= f.label :valor_servicio %>: <%= @parqueo.valor_servicio %>
+    <% end %>
+  </p>
+  <%= image_tag("codigo_autorizacion.png") %>
+  <% end %>
+  </div>
+<% end %>

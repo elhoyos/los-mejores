@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :parqueos
+  resources :parqueos do
+    collection do
+      get 'salida'
+      post 'salida', to: :salida_create
+    end
+  end
+
   resources :informes
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

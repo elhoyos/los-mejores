@@ -52,6 +52,8 @@ class Parqueo < ActiveRecord::Base
 
       if hours > 0
         valor_horas += (minutes / FRACCION_HORA.to_f).ceil * COBRO_FRACCION_HORA
+      else
+        valor_horas = COBRO_HORA
       end
 
       if valor_horas > COBRO_DIA

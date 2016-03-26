@@ -1,4 +1,12 @@
 <%= form_for :parqueo, url: parqueos_path do |f| %>
+  <h2>
+    Registro de Entrada
+  </h2>
+
+  <p style="color: red">
+  IMPORTANTE: Esta pantalla es para uso exclusivo del equipo de pruebas para generar escenarios de entrada de vehículos y no hace parte de los requerimientos que serán entregados finalmente al cliente.
+  </p>
+
   <% if @parqueo.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -17,30 +25,37 @@
     <%= f.fields_for @parqueo.automovil do |f| %>
       <%= f.label :placa %><br>
       <%= f.text_field :placa %>
-      <%= f.submit "Registrar Salida" %>
     <% end %>
   </p>
 
-  <% if @parqueo.valor_servicio and not @parqueo.errors.any? %>
-  <div style="border: 1px dashed black">
-  <h2>
-    <% if @parqueo.valor_servicio == 0 %>
-    Constancia de servicio
-    <% else %>
-    Factura de Venta
-    <% end %>
-  </h2>
   <p>
-    <%= f.label :placa %>: <%= @parqueo.automovil.placa %><br>
-    <%= f.label :hora_entrada %>: <%= @parqueo.hora_entrada %><br>
-    <%= f.label :hora_salida %>: <%= @parqueo.hora_salida %><br>
-    <% if @parqueo.valor_servicio == 0 %>
-    <span>Inscrito Mensualidad</span>
-    <% else %>
-    <%= f.label :valor_servicio %>: <%= @parqueo.valor_servicio %>
-    <% end %>
+    <%= f.label :hora_entrada %><br>
+    <%= f.datetime_select :hora_entrada %>
   </p>
-  <%= image_tag("codigo_autorizacion.png") %>
-  <% end %>
-  </div>
+
+  <p>
+    <%= f.submit "Registrar Entrada" %>
+  </p>
 <% end %>
+
+<h2>
+  Listado de Parqueos
+</h2>
+
+<table>
+  <tr>
+    <th>Placa</th>
+    <th>Hora Entrada</th>
+    <th>Hora Salida</th>
+    <th>Valor Servicio</th>
+  </tr>
+
+  <% @parqueos.each do |parqueo| %>
+    <tr>
+      <td><%= parqueo.automovil.placa %></td>
+      <td><%= parqueo.hora_entrada %></td>
+      <td><%= parqueo.hora_salida %></td>
+      <td><%= parqueo.valor_servicio %></td>
+    </tr>
+  <% end %>
+</table>
