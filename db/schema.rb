@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160325155832) do
     t.integer  "num_autos_parqueados"
     t.integer  "num_autos_inscritos"
     t.integer  "total_recaudo"
+    t.datetime "fecha_informe"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.datetime "fecha"

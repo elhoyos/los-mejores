@@ -22,10 +22,25 @@
   </p>
 
   <% if @parqueo.valor_servicio and not @parqueo.errors.any? %>
+  <div style="border: 1px dashed black">
+  <h2>
+    <% if @parqueo.valor_servicio == 0 %>
+    Constancia de servicio
+    <% else %>
+    Factura de Venta
+    <% end %>
+  </h2>
   <p>
+    <%= f.label :placa %>: <%= @parqueo.automovil.placa %><br>
     <%= f.label :hora_entrada %>: <%= @parqueo.hora_entrada %><br>
     <%= f.label :hora_salida %>: <%= @parqueo.hora_salida %><br>
+    <% if @parqueo.valor_servicio == 0 %>
+    <span>Inscrito Mensualidad</span>
+    <% else %>
     <%= f.label :valor_servicio %>: <%= @parqueo.valor_servicio %>
+    <% end %>
   </p>
+  <%= image_tag("codigo_autorizacion.png") %>
   <% end %>
+  </div>
 <% end %>
