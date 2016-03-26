@@ -1,8 +1,24 @@
-== Aplicación Web de Pago e Informes
+== Aplicación Web de Pago e Informes — Parqueadero Los Mejores
 
-=== Parqueadero Los Mejores
+=== Requerimientos
+
+* Ruby 2.2.4
+* Rails 4.2
+
+Para mayor información sobre cómo instalar estos requerimientos siga la guía del sistema operativo que usted utiliza en http://www.rubyonrails.org.es/instala.html
+
+=== Instrucciones de uso
+
+Una vez instalados los requerimientos ejecute los siguientes comandos para iniciar el servicio web de la aplicación. Ejemplo para Windows:
+
+    C:\> cd los-mejores
+    C:\los-mejores> bundle install
+    C:\los-mejores> rails server
+
+[TODO: vínculos a las diferentes pantallas de la aplicación]
 
 
 === Colaboradores
-Juan David Hoyos (@elhoyos)
-Francisco Cogollo Rodriguez (@trebol256)
+
+* Francisco Cogollo Rodriguez (@trebol256)
+* Juan David Hoyos (@elhoyos)
