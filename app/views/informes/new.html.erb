@@ -1,15 +1,27 @@
-<h1> Tabla de informes</h1>
-
+<h1> Informe</h1>
+<%= form_for :informe, url: informes_path do |f| %>
   
   <p>
 		<strong>Numero de automoviles parqueados:</strong>
+		<%=f.text_field :num_autos_parqueados, readonly: true %>
   </p>
   
    <p>
 		<strong>Numero de automoviles inscritos:</strong>
+		<%=f.text_field :num_autos_inscritos, readonly: true %>
    </p>
    
    <p>
 		<strong>Total valor recaudado:</strong>
+		<%=f.text_field :total_recaudo, readonly: true %>
   </p>
-
+  <p>
+		<strong>Fecha:</strong>
+		<%=f.text_field :fecha, readonly: true %>
+  </p>
+  
+   <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+<%= link_to 'Volver a lista de informes', informes_path %>

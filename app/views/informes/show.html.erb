@@ -2,12 +2,20 @@
 
 <p>
 		<strong>Numero de automoviles parqueados:</strong>
+		 <%= @informe.num_autos_parqueados %>
   </p>
   
    <p>
 		<strong>Numero de automoviles inscritos:</strong>
+		 <%= @informe.num_autos_inscritos %>
    </p>
    
    <p>
 		<strong>Total valor recaudado:</strong>
+		<%= @informe.total_recaudo %>
   </p>
+  <p>
+		<strong>Fecha:</strong>
+		<%= @informe.fecha %>
+  </p>
+  <%= link_to 'Volver a lista de informes', informes_path %>
