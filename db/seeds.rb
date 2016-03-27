@@ -8,6 +8,8 @@
 
 Parqueo.delete_all
 Automovil.delete_all
+Informe.delete_all
+Usuario.delete_all
 
 automoviles = Automovil.create([
   { placa: "MLC089", inscrito: false },
@@ -39,3 +41,6 @@ Parqueo.create([
   hora_salida: Time.new(2016, 02, 22, 11, 00, 00),
   valor_servicio: 2000
 ])
+
+Usuario.create(nombre: 'Gerente', email: 'gerente@losmejores.com', password: 'gerente', password_confirmation: 'gerente')
+Usuario.create(nombre: 'Operador', email: 'operador@losmejores.com', password: 'operador', password_confirmation: 'operador')

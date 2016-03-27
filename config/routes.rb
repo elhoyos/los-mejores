@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'usuarios/new'
-
   resources :parqueos do
     collection do
       get 'salida'
@@ -9,6 +7,13 @@ Rails.application.routes.draw do
   end
 
   resources :informes
+
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+
+  root 'sessions#new'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

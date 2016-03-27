@@ -7,11 +7,39 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="menu">
+  <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <% if logged_in? %>
+          <% if gerente? %>
+            <li>
+                <%= link_to "Informes", informes_path %>
+            </li>
+            <li>
+                <%= link_to "Registrar Entrada (Exclusivo Pruebas)", new_parqueo_path %>
+            </li>
+          <% else %>
+            <li>
+                <%= link_to "Registrar Salida", salida_parqueos_path %>
+            </li>
+          <% end %>
+        <li>
+          <%= link_to "Cerrar sesión", logout_path, method: "delete" %>
+        </li>
+        <% end %>
+      </ul>
+  </nav>
+</div>
+
 <% flash.each do |name, msg| -%>
   <%= content_tag :div, msg, class: name %>
 <% end -%>
 
-<%= yield %>
+<% if logged_in? or current_page?(controller: 'sessions', action: 'new') %>
+  <%= yield %>
+<% else %>
+  <%= link_to "Inicio de sesión", login_path %>
+<% end %>
 
 </body>
 </html>

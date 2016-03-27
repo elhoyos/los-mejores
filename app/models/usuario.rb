@@ -7,4 +7,8 @@ class Usuario < ActiveRecord::Base
 
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+
+  def gerente?
+    email == 'gerente@losmejores.com'
+  end
 end
