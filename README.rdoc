@@ -9,14 +9,28 @@ Para mayor información sobre cómo instalar estos requerimientos siga la guía 
 
 === Instrucciones de uso
 
-Una vez instalados los requerimientos ejecute los siguientes comandos para iniciar el servicio web de la aplicación. Ejemplo para Windows:
+Una vez instalados los requerimientos ejecute los siguientes comandos para configurar la aplicación. Ejemplo para Windows:
 
     C:\> cd los-mejores
     C:\los-mejores> bundle install
+    C:\los-mejores> rake db:seed
+
+En este punto deben existir algunos registros de parqueo de automóviles y dos usuarios en la base de datos:
+
+*Gerente*:
+- email: gerente@losmejores.com
+- password: gerente
+
+*Operador*:
+- email: operador@losmejores.com
+- password: operador
+
+
+Inicie la aplicación web:
+
     C:\los-mejores> rails server
 
-[TODO: vínculos a las diferentes pantallas de la aplicación]
-
+Diríjase a la siguiente dirección desde su navegador: http://localhost:3000 e inicie sesión con cualquiera de los usuarios registrados.
 
 === Colaboradores
 
