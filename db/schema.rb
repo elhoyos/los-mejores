@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160325155832) do
+ActiveRecord::Schema.define(version: 20160326235454) do
 
   create_table "automoviles", force: :cascade do |t|
     t.string   "placa"
@@ -42,5 +42,15 @@ ActiveRecord::Schema.define(version: 20160325155832) do
   end
 
   add_index "parqueos", ["automovil_id"], name: "index_parqueos_on_automovil_id"
+
+  create_table "usuarios", force: :cascade do |t|
+    t.string   "nombre"
+    t.string   "email"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
+  end
+
+  add_index "usuarios", ["email"], name: "index_usuarios_on_email", unique: true
 
 end

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'usuarios/new'
+
   resources :parqueos do
     collection do
       get 'salida'
