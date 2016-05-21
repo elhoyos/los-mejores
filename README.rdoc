@@ -13,6 +13,7 @@ Una vez instalados los requerimientos ejecute los siguientes comandos para confi
 
     C:\> cd los-mejores
     C:\los-mejores> bundle install
+    C:\los-mejores> rake db:migrate
     C:\los-mejores> rake db:seed
 
 En este punto deben existir algunos registros de parqueo de automóviles y dos usuarios en la base de datos:
